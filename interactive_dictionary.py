@@ -1,13 +1,10 @@
 import json
 from difflib import get_close_matches
 
-#load JSON data
-data = json.load(open("data.json"))
+data = json.load(open("req_data.json"))
 
-#take word from user
 word = input('Enter word: ')
 
-#function to return meaning of the word from data
 def getMeaning(w):
     #for case sensitivity
     w = w.lower()
@@ -28,13 +25,47 @@ def getMeaning(w):
             return "Sorry, We didn't understand your entry."
     else:
         return "The word doesn't exist. Please double check it."
+    
+def find():                        
+        meaning = getMeaning(word)
+        if type(meaning) == list:
+                              for item in meaning:
+                                          print(item)
+        else:
+            print(meaning)
+find()
 
-#function call to get meaning of the word entered by user
-meaning = getMeaning(word)
+print("\n")
+print("Do you want search meaning of word again :")
+print("1.Yes\n2.No")
 
-#printing meaning of the word in console
-if type(meaning) == list:
-    for item in meaning:
-        print(item)
-else:
-    print(meaning)
+again=str(input()).lower()
+#print("Do you want search meaning of word again :")
+while again=='yes':
+    if(again=='yes'):
+        word = input('Enter word: ')
+        find()
+    print("\n")
+    print("Do you want search meaning of word again :")
+    print("1.Yes\n2.No")
+    again=str(input()).lower()
+    
+    
+
+                     
+                         
+
+
+     
+
+
+        
+    
+            
+
+
+
+    
+    
+
+    
